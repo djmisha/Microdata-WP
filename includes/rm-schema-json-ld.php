@@ -93,19 +93,20 @@ class RM_Schema_JSON_LD {
 		$site_name	= !empty( self::$plugin_data['site_name'] ) ? self::$plugin_data['site_name'] : get_bloginfo('name');
 
 		// Site description is determined by the following logic/priority:
-		// 		1) RM Schema Plugin "About Site"
-		// 		2) All In One SEO plugin home description when it's the front page
-		// 		3) Yoast home description
-		// 		4) The natural WordPress "Site Tagline"
+		// 		1) Define natural WordPress "Site Tagline"
+		// 		2) Overwrite Site Tagline if RM Schema Plugin "About Site" is not empty
+		// 		3) Overwrite Site Tagline if All In One SEO plugin home description when it's the front page isn't empty
+		// 		4) Overwrite Site Tagline if Yoast home description
+
+		$site_about	= get_bloginfo('description');
 
 		if ( !empty( self::$plugin_data['site_about'] ) ) {
 			$site_about	= self::$plugin_data['site_about'];
 		} elseif ( function_exists('aioseop_get_options') && !empty( aioseop_get_options()['aiosp_home_description'] ) ) {
 			$site_about	= aioseop_get_options()['aiosp_home_description'];
-		} elseif ( class_exists('WPSEO_Options') && !empty( WPSEO_Options::get('metadesc-home-wpseo') ) ) {
-			$site_about	= WPSEO_Options::get('metadesc-home-wpseo');
-		} else {
-			$site_about	= get_bloginfo('description');
+		} elseif ( class_exists('WPSEO_Options') ) {
+			$yoast_metadesc_home	= WPSEO_Options::get('metadesc-home-wpseo');
+			$site_about = !empty( $yoast_metadesc_home ) ? $yoast_metadesc_home : $site_about;
 		}
 
 		$site_schema	= array();
