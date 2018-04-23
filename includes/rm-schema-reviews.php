@@ -61,7 +61,7 @@ class RM_Schema_Reviews {
 			// strip the source map if present, causes bugs
 			$contents	= preg_replace( '/\/\*(.)+\ *\//', '', $contents );
 
-			echo '<style type="text/css" media="screen">'. $contents .'</style>';
+			echo '<style type="text/css" media="screen">'. trim( $contents ) .'</style>';
 		}
 
 	}
