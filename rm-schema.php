@@ -156,7 +156,7 @@ RM_Schema::singleton();
 
 
 // Run update checker code
-if ( file_exists(dirname(__FILE__) . '/_plugin-update-checker/plugin-update-checker.php') ) {
+if ( file_exists(dirname(__FILE__) . '/plugin-update-checker/plugin-update-checker.php') ) {
 
 	if ( !class_exists('Puc_v4_Factory') ) {
 		require 'plugin-update-checker/plugin-update-checker.php';
@@ -167,7 +167,7 @@ if ( file_exists(dirname(__FILE__) . '/_plugin-update-checker/plugin-update-chec
 		    'http://plugins.rosemontmedia.com/wp-update-server/?action=get_metadata&slug=rm-schema',
 		    __FILE__,
 		    'rm-schema',
-		    ( 24 )
+		    24
 		);
 	}
 
