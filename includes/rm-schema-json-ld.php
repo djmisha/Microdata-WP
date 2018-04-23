@@ -97,12 +97,15 @@ class RM_Schema_JSON_LD {
 		// Site description is determined by the following logic/priority:
 		// 		1) RM Schema Plugin "About Site"
 		// 		2) All In One SEO plugin home description when it's the front page
-		// 		3) The natural WordPress "Site Tagline"
+		// 		3) Yoast home description
+		// 		4) The natural WordPress "Site Tagline"
 
 		if ( !empty( self::$plugin_data['site_about'] ) ) {
 			$site_about	= self::$plugin_data['site_about'];
 		} elseif ( function_exists('aioseop_get_options') && !empty( aioseop_get_options()['aiosp_home_description'] ) ) {
 			$site_about	= aioseop_get_options()['aiosp_home_description'];
+		} elseif ( class_exists('WPSEO_Options') && !empty( WPSEO_Options::get('metadesc-home-wpseo') ) ) {
+			$site_about	= WPSEO_Options::get('metadesc-home-wpseo');
 		} else {
 			$site_about	= get_bloginfo('description');
 		}
