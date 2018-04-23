@@ -36,9 +36,7 @@ class RM_Schema_JSON_LD {
 		add_action( 'rm_json_ld', array( $this, 'output_head_schema' ), 99 );
 
 		// Kill the Yoast schema if we have data saved
-		if ( !empty( self::$plugin_data ) ) {
-			add_filter( 'wpseo_json_ld_output', '__return_null' );
-		}
+		add_filter( 'wpseo_json_ld_output', '__return_null' );
 
 	}
 
