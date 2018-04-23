@@ -180,6 +180,17 @@ class RM_Schema_JSON_LD {
 			"about"		=> $site_about
 		);
 
+		// Add search functionality if desired
+		if ( !empty( self::$plugin_data['sitelinks_searchbox'] ) ) {
+
+			$website_schema['potentialAction'] = array(
+				"@type"			=> "SearchAction",
+				"target"		=> get_bloginfo('url').'/?s={search_term_string}',
+				"query-input"	=> "required name=search_term_string"
+			);
+
+		}
+
 		array_push( $site_schema, $website_schema );
 
 

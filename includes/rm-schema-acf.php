@@ -188,13 +188,22 @@ class RM_Schema_ACF {
 
 		acf_add_local_field( array(
 			'parent'	=> $parent,
+			'key'		=> 'sitelinks_searchbox',
+			'name'		=> 'sitelinks_searchbox',
+			'label'		=> 'Use Sitelinks Searchbox?',
+			'type'		=> 'true_false',
+			'instructions'	=> 'This is the individual searchbox that will appear in Google for the site. Example and definition <a href="https://developers.google.com/search/docs/data-types/sitelinks-searchbox" target="_blank">here</a>.'
+		) );
+
+		acf_add_local_field( array(
+			'parent'	=> $parent,
 			'key'		=> 'organization_type',
 			'name'		=> 'organization_type',
 			'label'		=> 'Organization Type',
 			'type'		=> 'radio',
 			'choices'	=> array(
-				'Physician'				=> 'Physician',
-				'Dentist'				=> 'Dentist'
+				'Physician'	=> 'Physician',
+				'Dentist'	=> 'Dentist'
 			),
 			'layout'		=> 'horizontal',
 			'other_choice'	=> true
