@@ -2,10 +2,10 @@
 /**
  * Rosemont Media Schema Plugin
  *
- * Plugin Name: RM Schema Plugin
+ * Plugin Name: RM Schema
  * Plugin URI: https://www.rosemontmedia.com/
  * Author: Rosemont Media
- * Aurthor URI: https://www.rosemontmedia.com/
+ * Author URI: https://www.rosemontmedia.com/
  * Version: 0.3
  * Description: Adds admin page and fields through ACF to add Business and Review schema to the website head tag. Currently only supports Pro version of ACF.
  *

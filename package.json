@@ -1,7 +1,7 @@
 {
-  "name": "rm-schema-plugin",
+  "name": "rm-schema",
   "description": "WordPress schema plugin developed by Rosemont Media.",
-  "version": "1.0.0",
+  "version": "0.3",
   "homepage": "https://rosemontmedia.com/",
   "author": {
     "name": "Rosemont Media",
