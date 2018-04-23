@@ -364,7 +364,7 @@ class RM_Schema_ACF {
 			'name'		=> 'state',
 			'label'		=> 'State',
 			'type'		=> 'text',
-			'maxlength'	=> 2
+			'maxlength'	=> 3
 		) );
 
 		acf_add_local_field( array(
