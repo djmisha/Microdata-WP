@@ -188,12 +188,7 @@ class RM_Schema_ACF {
 			'type'		=> 'radio',
 			'choices'	=> array(
 				'Physician'				=> 'Physician',
-				'Dentist'				=> 'Dentist',
-				'Plastic Surgeon'		=> 'Plastic Surgeon',
-				'Ophthalmologist'		=> 'Ophthalmologist',
-				'Dermatologist'			=> 'Dermatologist',
-				'Orthopaedic Surgeon'	=> 'Orthopaedic Surgeon',
-				'Bariatric Surgeon'		=> 'Bariatric Surgeon',
+				'Dentist'				=> 'Dentist'
 			),
 			'layout'		=> 'horizontal',
 			'other_choice'	=> true
