@@ -39,15 +39,21 @@ class RM_Schema_ACF {
 		);
 
 		self::$groups[]	= array(
+			'key'			=> 'rm_locations_schema',
+			'title'			=> 'Locations Schema',
+			'menu_order'	=> 1
+		);
+
+		self::$groups[]	= array(
 			'key'			=> 'rm_employees_schema',
 			'title'			=> 'Employees Schema',
-			'menu_order'	=> 1
+			'menu_order'	=> 2
 		);
 
 		self::$groups[]	= array(
 			'key'			=> 'rm_review_schema',
 			'title'			=> 'Review Schema',
-			'menu_order'	=> 2
+			'menu_order'	=> 3
 		);
 
 		$this->create_admin_page();
@@ -213,6 +219,10 @@ class RM_Schema_ACF {
 			'label'		=> 'URL',
 			'type'		=> 'url',
 		) );
+
+	}
+
+	public static function add_fields_rm_locations_schema( $parent ) {
 
 		// This will/should be moved to a plugin or combined with one that will work as a hub for all theme settings/options
 		acf_add_local_field( array(
