@@ -332,10 +332,20 @@ class RM_Schema_JSON_LD {
 				// Only adding if geo values exist
 				if ( !empty( $location['latitude'] ) && !empty( $location['longitude'] ) ) {
 
+					if ( !empty( $location['business_name'] ) ) {
+						$location_name	= $location['business_name'];
+					} elseif ( !empty( self::$plugin_data['site_name'] ) ) {
+						$location_name	= self::$plugin_data['site_name'];
+					} else {
+						$location_name	= get_bloginfo('name');
+					}
+
+					$location_name	= !empty( $location['business_name'] ) ? $location['business_name'] : self::$plugin_data['site_name'];
+
 					$location_schema	= array(
 						"@context"	=> "http://schema.org",
 						"@type"		=> "Place",
-						"name"		=> $location['business_name'],
+						"name"		=> $location_name,
 						"geo"		=> array(
 							"@type"		=> "GeoCoordinates",
 							"latitude"	=> $location['latitude'],

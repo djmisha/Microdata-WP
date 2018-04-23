@@ -338,6 +338,8 @@ class RM_Schema_ACF {
 			'name'		=> 'business_name',
 			'label'		=> 'Business Name',
 			'type'		=> 'text',
+			'placeholder'	=> !empty( self::$plugin_data['site_name'] ) ? self::$plugin_data['site_name'] : get_bloginfo('name'),
+			'instructions'	=> 'If left blank, will default to Site Name.'
 		) );
 
 		acf_add_local_field( array(
