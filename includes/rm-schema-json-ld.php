@@ -352,8 +352,6 @@ class RM_Schema_JSON_LD {
 						$location_name	= get_bloginfo('name');
 					}
 
-					$location_name	= !empty( $location['business_name'] ) ? $location['business_name'] : self::$plugin_data['site_name'];
-
 					$location_schema	= array(
 						"@context"	=> "http://schema.org",
 						"@type"		=> "Place",
