@@ -107,9 +107,6 @@ class RM_Schema_JSON_LD {
 			$site_about	= get_bloginfo('description');
 		}
 
-		$content	= $post->post_content;
-		$content	= strip_tags( apply_filters( 'the_content', $content ) );
-
 		$site_schema	= array();
 
 		/**
