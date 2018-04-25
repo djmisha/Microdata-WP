@@ -125,7 +125,7 @@ class RM_Schema_JSON_LD {
 		// Add image of site/organization if it was defined
 		if ( !empty( self::$plugin_data['site_logo'] ) ) {
 
-			$site_logo	= wp_get_attachment_image_src( self::$plugin_data['site_logo'] );
+			$site_logo	= wp_get_attachment_image_src( self::$plugin_data['site_logo'], 'full' );
 
 			$organization_schema['logo'] = array(
 				"@type"	=> "ImageObject",
