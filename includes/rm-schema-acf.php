@@ -217,7 +217,7 @@ class RM_Schema_ACF {
 			'label'		=> 'Related URLs (Social Media)',
 			'type'		=> 'repeater',
 			'layout'	=> 'row',
-			'instruction'	=> 'Related sites/URLs and social media URLs that this website is related to.',
+			'instructions'	=> 'Related sites/URLs and social media URLs that this website is related to.',
 			'button_label'	=> 'Add URL',
 		) );
 
