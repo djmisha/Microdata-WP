@@ -434,7 +434,7 @@ class RM_Schema_ACF {
 			'name'		=> 'country',
 			'label'		=> 'Country',
 			'type'		=> 'text',
-			'instructions'	=> 'Only really necessary if outside of US.'
+			'instructions'	=> 'Preferrence for the <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements" target="_blank">2-letter ISO 3166-1 alpha-2 country code</a>. <br>Only really necessary if outside of US.'
 		) );
 
 		acf_add_local_field( array(
