@@ -385,6 +385,9 @@ class RM_Schema_ACF {
 	 */
 	public static function add_location_sub_fields() {
 
+		// check for business phone number to use as placeholder to show fallback to user
+		$placeholder_phonenumber	= !empty( self::$plugin_data['main_phone'] ) ? self::$plugin_data['main_phone'] : '+1-555-555-5555';
+
 		acf_add_local_field( array(
 			'parent'	=> 'locations',
 			'key'		=> 'business_name',
@@ -444,7 +447,7 @@ class RM_Schema_ACF {
 			'name'		=> 'phone',
 			'label'		=> 'Phone Number',
 			'type'		=> 'text',
-			'placeholder'	=> '+1-555-555-5555',
+			'placeholder'	=> $placeholder_phonenumber,
 			'instructions'	=> 'If left blank, will default to the general number above.'
 		) );
 
@@ -473,6 +476,9 @@ class RM_Schema_ACF {
 	}
 
 	public static function add_employee_sub_fields() {
+
+		// check for business phone number to use as placeholder to show fallback to user
+		$placeholder_phonenumber	= !empty( self::$plugin_data['main_phone'] ) ? self::$plugin_data['main_phone'] : '+1-555-555-5555';
 
 		acf_add_local_field( array(
 			'parent'	=> 'employees',
@@ -518,7 +524,7 @@ class RM_Schema_ACF {
 			'name'		=> 'phone',
 			'label'		=> 'Phone Number',
 			'type'		=> 'text',
-			'placeholder'	=> '+1-555-555-5555',
+			'placeholder'	=> $placeholder_phonenumber,
 			'instructions'	=> 'If left blank, will default to business number.'
 		) );
 
