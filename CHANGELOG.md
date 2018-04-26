@@ -1,6 +1,19 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 0.4
+
+* Added JPEGs as possible options for images (not just JPG)
+* Gave phone number text fields the business phone number as placeholder if business phone number was defined
+* Turn "About" field to textarea instead of text
+* Added link to acceptable options in instructions for Country schema
+* Adding schema and set up for LocalBusiness
+* Correcting typo in instructions for Related URLs
+* Use correct size (full) for business logo, instead of thumbnail
+* Trim white space from inline output of ratings CSS
+* Proper implementation of name fallback for individual locations
+* Fixed error for "return value in write context" error in certain versions of PHP
+
 ## 0.3
 
 * Added Sitelinks Searchbox
