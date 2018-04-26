@@ -35,7 +35,7 @@ class RM_Schema_JSON_LD {
 		// Give this last priority so schema is collected
 		add_action( 'rm_json_ld', array( $this, 'output_head_schema' ), 99 );
 
-		// Kill the Yoast schema if we have data saved
+		// Kill the Yoast schema
 		add_filter( 'wpseo_json_ld_output', '__return_null' );
 
 	}
@@ -223,6 +223,35 @@ class RM_Schema_JSON_LD {
 
 			if ( !empty( self::$plugin_data['about_us_link'] ) ) {
 				$in_depth_schema['url']	= self::$plugin_data['about_us_link']['url'];
+			}
+
+			// LocalBusiness type of schema requires an image set and suggests/prefers a priceRange as well
+			if ( self::$plugin_data['organization_type'] == 'LocalBusiness'  ) {
+
+				if ( !empty( self::$plugin_data['business_image'] ) ) {
+
+					$business_image	= wp_get_attachment_image_src( self::$plugin_data['business_image'], 'large' );
+
+					$in_depth_schema['image']	= $business_image[0]; // only URL needed
+
+				} elseif ( !empty( self::$plugin_data['site_logo'] ) ) {
+
+					// Just making absolutely sure the variable was defined further above
+					// but if not, then define it
+					if ( !isset( $site_logo ) ) {
+						$site_logo		= wp_get_attachment_image_src( self::$plugin_data['site_logo'], 'full' );
+						$site_logo_url	= $site_logo[0];
+					} else {
+						$site_logo_url	= $site_logo[0];
+					}
+
+					$in_depth_schema['image']	= $site_logo_url;
+				}
+
+				if ( !empty( self::$plugin_data['price_range'] ) ) {
+					$in_depth_schema['priceRange']	= self::$plugin_data['price_range'];
+				}
+
 			}
 
 			if ( !empty( self::$plugin_data['locations'] ) && is_array( self::$plugin_data['locations'] ) ) {
