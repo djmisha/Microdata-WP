@@ -164,7 +164,8 @@ class RM_Schema_ACF {
 			'key'		=> 'site_about',
 			'name'		=> 'site_about',
 			'label'		=> 'About Site',
-			'type'		=> 'text',
+			'type'		=> 'textarea',
+			'rows'		=> 4,
 			'placeholder'	=> get_bloginfo('description'),
 			'instructions'	=> 'If left blank, will default to the "Site Tagline" defined in WordPress admin area under General Settings.'
 		) );
