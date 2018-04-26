@@ -141,7 +141,7 @@ class RM_Schema_ACF {
 			'label'		=> 'Site Logo',
 			'type'		=> 'image',
 			'return_value'	=> 'url',
-			'mime_types'	=> 'jpg, png',
+			'mime_types'	=> 'jpg, jpeg, png',
 			'min_width'		=> 160,
 			'min_height'	=> 90,
 			'max_width'		=> 1920,
@@ -236,7 +236,7 @@ class RM_Schema_ACF {
 			'label'		=> 'Business Image',
 			'type'		=> 'image',
 			'return_value'	=> 'url',
-			'mime_types'	=> 'jpg, png',
+			'mime_types'	=> 'jpg, jpeg, png',
 			'min_width'		=> 160,
 			'min_height'	=> 90,
 			'max_width'		=> 1920,
@@ -514,7 +514,7 @@ class RM_Schema_ACF {
 			'label'		=> 'Image',
 			'type'		=> 'image',
 			'return_value'	=> 'url',
-			'mime_types'	=> 'jpg, png',
+			'mime_types'	=> 'jpg, jpeg, png',
 			'instructions'	=> 'Only jpg and png files accepted'
 		) );
 
