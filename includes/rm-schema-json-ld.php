@@ -225,33 +225,29 @@ class RM_Schema_JSON_LD {
 				$in_depth_schema['url']	= self::$plugin_data['about_us_link']['url'];
 			}
 
-			// LocalBusiness type of schema requires an image set and suggests/prefers a priceRange as well
-			if ( self::$plugin_data['organization_type'] == 'LocalBusiness'  ) {
+			// Schema requires an image set and suggests/prefers a priceRange as well
+			if ( !empty( self::$plugin_data['business_image'] ) ) {
 
-				if ( !empty( self::$plugin_data['business_image'] ) ) {
+				$business_image	= wp_get_attachment_image_src( self::$plugin_data['business_image'], 'large' );
 
-					$business_image	= wp_get_attachment_image_src( self::$plugin_data['business_image'], 'large' );
+				$in_depth_schema['image']	= $business_image[0]; // only URL needed
 
-					$in_depth_schema['image']	= $business_image[0]; // only URL needed
+			} elseif ( !empty( self::$plugin_data['site_logo'] ) ) {
 
-				} elseif ( !empty( self::$plugin_data['site_logo'] ) ) {
-
-					// Just making absolutely sure the variable was defined further above
-					// but if not, then define it
-					if ( !isset( $site_logo ) ) {
-						$site_logo		= wp_get_attachment_image_src( self::$plugin_data['site_logo'], 'full' );
-						$site_logo_url	= $site_logo[0];
-					} else {
-						$site_logo_url	= $site_logo[0];
-					}
-
-					$in_depth_schema['image']	= $site_logo_url;
+				// Just making absolutely sure the variable was defined further above
+				// but if not, then define it
+				if ( !isset( $site_logo ) ) {
+					$site_logo		= wp_get_attachment_image_src( self::$plugin_data['site_logo'], 'full' );
+					$site_logo_url	= $site_logo[0];
+				} else {
+					$site_logo_url	= $site_logo[0];
 				}
 
-				if ( !empty( self::$plugin_data['price_range'] ) ) {
-					$in_depth_schema['priceRange']	= self::$plugin_data['price_range'];
-				}
+				$in_depth_schema['image']	= $site_logo_url;
+			}
 
+			if ( !empty( self::$plugin_data['price_range'] ) ) {
+				$in_depth_schema['priceRange']	= self::$plugin_data['price_range'];
 			}
 
 			if ( !empty( self::$plugin_data['locations'] ) && is_array( self::$plugin_data['locations'] ) ) {
