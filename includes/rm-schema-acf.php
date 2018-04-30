@@ -218,15 +218,6 @@ class RM_Schema_ACF {
 			'label'		=> 'Price Range',
 			'type'		=> 'text',
 			'instructions'	=> 'The price range of the business. Arbitrary field. For example "$$$"" or a range "$00 - $0000".',
-			'conditional_logic' => array(
-				array(
-					array(
-						'field' => 'organization_type',
-						'operator' => '==',
-						'value' => 'LocalBusiness',
-					),
-				),
-			),
 		) );
 
 		acf_add_local_field( array(
@@ -242,15 +233,6 @@ class RM_Schema_ACF {
 			'max_width'		=> 1920,
 			'max_height'	=> 1080,
 			'instructions'	=> 'Image of the actual Business. Will default/fallback to the Site Logo if left empty. <br>Only jpg and png files accepted. <br>Min dimensions of image: 160px width by 90px height <br>Max dimensions of image: 1920px width by 1080px height',
-			'conditional_logic' => array(
-				array(
-					array(
-						'field' => 'organization_type',
-						'operator' => '==',
-						'value' => 'LocalBusiness',
-					),
-				),
-			),
 		) );
 
 		// This should probably be replaced by defining social media URLs elsewhere, like theme settings but not all blogs have theme settings
