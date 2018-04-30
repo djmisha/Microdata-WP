@@ -378,6 +378,7 @@ class RM_Schema_JSON_LD {
 					$location_schema	= array(
 						"@context"	=> "http://schema.org",
 						"@type"		=> "Place",
+						"@id"		=> get_bloginfo('url') .$location_name,
 						"name"		=> $location_name,
 						"geo"		=> array(
 							"@type"		=> "GeoCoordinates",
