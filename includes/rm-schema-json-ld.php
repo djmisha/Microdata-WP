@@ -246,9 +246,7 @@ class RM_Schema_JSON_LD {
 				$in_depth_schema['image']	= $site_logo_url;
 			}
 
-			if ( !empty( self::$plugin_data['price_range'] ) ) {
-				$in_depth_schema['priceRange']	= self::$plugin_data['price_range'];
-			}
+			$in_depth_schema['priceRange']	= !empty( self::$plugin_data['price_range'] ) ? self::$plugin_data['price_range'] : 'Contact For Pricing';
 
 			if ( !empty( self::$plugin_data['locations'] ) && is_array( self::$plugin_data['locations'] ) ) {
 

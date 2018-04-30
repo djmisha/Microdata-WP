@@ -217,6 +217,7 @@ class RM_Schema_ACF {
 			'name'		=> 'price_range',
 			'label'		=> 'Price Range',
 			'type'		=> 'text',
+			'placeholder'	=> 'Contact For Pricing',
 			'instructions'	=> 'The price range of the business. Arbitrary field. For example "$$$"" or a range "$00 - $0000".',
 		) );
 
