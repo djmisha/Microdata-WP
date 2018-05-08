@@ -1,6 +1,13 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 0.4.1
+
+* Adding @id for locations
+* Adding fallback for priceRange
+* Updating for "image" and "priceRange" requirements in not just LocalBusiness schema
+* Updating for "image" and "priceRange" requirements in not just LocalBusiness schema
+
 ## 0.4
 
 * Added JPEGs as possible options for images (not just JPG)
