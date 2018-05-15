@@ -20,9 +20,6 @@ class RM_Schema_ACF_Bypass {
 	// Plugin data
 	static $plugin_data	= null;
 
-	// Class variable to hold our ACF groups
-	static $groups		= array();
-
 	public function __construct() {
 
 		// get our plugin options as serialized data as we saved into the theme options
