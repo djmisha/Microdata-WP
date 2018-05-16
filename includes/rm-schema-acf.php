@@ -410,9 +410,9 @@ class RM_Schema_ACF {
 			'parent'	=> 'locations',
 			'key'		=> 'zipcode',
 			'name'		=> 'zipcode',
-			'label'		=> 'Zipcode',
-			'type'		=> 'number',
-			'maxlength'	=> 6
+			'label'		=> 'Postal Code',
+			'type'		=> 'text',
+			'maxlength'	=> 12
 		) );
 
 		acf_add_local_field( array(
