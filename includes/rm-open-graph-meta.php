@@ -158,10 +158,10 @@ class RM_Open_Graph_Meta {
 		// If singular, use the Featured image
 		if ( $image_data == false && is_singular() ) {
 
-			$post_id	= self::$post_data->ID;
-			$has_thumb	= has_post_thumbnail( $post_id );
+			$post_ID	= $post->ID;
+			$has_thumb	= has_post_thumbnail( $post_ID );
 
-			$image_data	= $has_thumb ? wp_get_attachment_image_src( get_post_thumbnail_id( $post_id ), 'large' ) : $image_data;
+			$image_data	= $has_thumb ? wp_get_attachment_image_src( get_post_thumbnail_id( $post_ID ), 'large' ) : $image_data;
 
 		}
 
