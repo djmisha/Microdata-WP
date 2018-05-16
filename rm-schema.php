@@ -94,6 +94,11 @@ class RM_Schema {
 				RM_Schema_ACF_Bypass::singleton();
 			}
 
+			if ( file_exists( RM_SCHEMA_PATH .'/includes/rm-open-graph-acf.php' ) ) {
+				include_once RM_SCHEMA_PATH .'/includes/rm-open-graph-acf.php';
+				RM_Open_Graph_ACF::singleton();
+			}
+
 		} else {
 
 			if ( file_exists( RM_SCHEMA_PATH .'/includes/rm-schema-json-ld.php' ) ) {
@@ -104,6 +109,11 @@ class RM_Schema {
 			if ( file_exists( RM_SCHEMA_PATH .'/includes/rm-schema-reviews.php' ) ) {
 				include_once RM_SCHEMA_PATH .'/includes/rm-schema-reviews.php';
 				RM_Schema_Reviews::singleton();
+			}
+
+			if ( file_exists( RM_SCHEMA_PATH .'/includes/rm-open-graph-meta.php' ) ) {
+				include_once RM_SCHEMA_PATH .'/includes/rm-open-graph-meta.php';
+				RM_Open_Graph_Meta::singleton();
 			}
 
 		}
