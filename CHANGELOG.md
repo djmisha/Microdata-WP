@@ -1,12 +1,17 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 0.5
+
+* Switched Zipcode to Postal Code and allowed for text instead of just numbers
+* Added open graph functionality
+* Removed unnecessary needed variable in ACF bypass class
+
 ## 0.4.1
 
-* Adding @id for locations
-* Adding fallback for priceRange
-* Updating for "image" and "priceRange" requirements in not just LocalBusiness schema
-* Updating for "image" and "priceRange" requirements in not just LocalBusiness schema
+* Added @id for locations
+* Added fallback for priceRange
+* Updated for "image" and "priceRange" requirements in not just LocalBusiness schema
 
 ## 0.4
 
@@ -14,7 +19,7 @@ All notable changes to this project will be documented in this file.
 * Gave phone number text fields the business phone number as placeholder if business phone number was defined
 * Turn "About" field to textarea instead of text
 * Added link to acceptable options in instructions for Country schema
-* Adding schema and set up for LocalBusiness
+* Added schema and set up for LocalBusiness
 * Correcting typo in instructions for Related URLs
 * Use correct size (full) for business logo, instead of thumbnail
 * Trim white space from inline output of ratings CSS
