@@ -116,12 +116,20 @@ class RM_Open_Graph_Meta {
 
 			setup_postdata( $post );
 
-			$og_description	= get_the_excerpt( $post->ID );
+			// Using output buffering in case someone tries to echo out the content in our filters...
+			// Basically safety for other plugin developers' mistakes
+			ob_start();
+
+			$the_excerpt	= get_the_excerpt( $post->ID );
+
+			echo $the_excerpt;
+
+			$og_description = ob_get_clean();
 
 			// shorten to 200 characters if it's longer
 			if ( mb_strlen( $og_description ) > 200 ) {
 
-				$og_description = substr( strip_tags( $og_description ), 0, 198 ) .'...';
+				$og_description = substr( trim( strip_tags( $og_description ) ), 0, 198 ) .'...';
 
 			}
 
