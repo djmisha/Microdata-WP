@@ -112,7 +112,7 @@ class RM_Open_Graph_Meta {
 			$og_description = $aioseo_description;
 		}
 
-		if ( $og_description == '' ) {
+		if ( $og_description == '' && is_single() ) {
 
 			setup_postdata( $post );
 
@@ -126,10 +126,29 @@ class RM_Open_Graph_Meta {
 
 			$og_description = ob_get_clean();
 
+			wp_reset_postdata();
+
 			// shorten to 200 characters if it's longer
 			if ( mb_strlen( $og_description ) > 200 ) {
 
 				$og_description = substr( trim( strip_tags( $og_description ) ), 0, 198 ) .'...';
+
+			}
+
+		} elseif ( is_front_page() ) {
+
+			if ( class_exists( 'All_in_One_SEO_Pack' ) ) {
+
+				$aiosp = new All_in_One_SEO_Pack();
+
+				$og_description	= $aiosp->get_aioseop_description( $post );
+
+			} else {
+
+				// fallback to the blog description in admin settings if it's not empty
+				$blog_description	= get_bloginfo('description');
+
+				$og_description		= $blog_description != '' ? $blog_description : '';
 
 			}
 
