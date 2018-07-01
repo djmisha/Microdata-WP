@@ -197,6 +197,9 @@ class RM_Schema_JSON_LD {
 
 		if ( !is_front_page() ) {
 
+			// Create the excerpt based on the $post->post_content due to the Multi-Column Mambo plugin messing with the_content filter improperly
+			$the_excerpt	= wp_trim_words( $post->post_content );
+
 			// WEBPAGE
 			$webpage_schema	= array(
 				"@context"			=> "http://schema.org/",
@@ -204,7 +207,7 @@ class RM_Schema_JSON_LD {
 				"url"				=> get_the_permalink(),
 				"headline"			=> get_the_title(),
 				"mainEntityOfPage"	=> get_the_permalink(),
-				"about"				=> get_the_excerpt()
+				"about"				=> $the_excerpt
 			);
 
 			array_push( $site_schema, $webpage_schema );
