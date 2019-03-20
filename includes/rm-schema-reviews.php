@@ -81,7 +81,7 @@ class RM_Schema_Reviews {
 		?>
 
 		<div class="ratings">
-			<a href="<?php echo $ratings_url; ?>"<?php echo $ratings_url_target; ?>>
+			<a href="<?php echo $ratings_url; ?>"<?php echo $ratings_url_target; ?> rel="noopener">
 				<span class="ratings__text"><?php echo $ratings_text; ?></span>
 
 				<?php if ( file_exists( RM_SCHEMA_PATH .'/images/star.svg' ) ) : ?>
