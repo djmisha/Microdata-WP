@@ -136,8 +136,8 @@ class RM_Schema_ACF {
 		 */
 		acf_add_local_field( array(
 			'parent'	=> $parent,
-			'key'		=> 'site_logo',
-			'name'		=> 'site_logo',
+			'key'		=> 'rm_schema_site_logo',
+			'name'		=> 'rm_schema_site_logo',
 			'label'		=> 'Site Logo',
 			'type'		=> 'image',
 			'return_value'	=> 'url',
@@ -151,8 +151,8 @@ class RM_Schema_ACF {
 
 		acf_add_local_field( array(
 			'parent'	=> $parent,
-			'key'		=> 'site_name',
-			'name'		=> 'site_name',
+			'key'		=> 'rm_schema_site_name',
+			'name'		=> 'rm_schema_site_name',
 			'label'		=> 'Site Name',
 			'type'		=> 'text',
 			'placeholder'	=> get_bloginfo('name'),
@@ -161,8 +161,8 @@ class RM_Schema_ACF {
 
 		acf_add_local_field( array(
 			'parent'	=> $parent,
-			'key'		=> 'site_about',
-			'name'		=> 'site_about',
+			'key'		=> 'rm_schema_site_about',
+			'name'		=> 'rm_schema_site_about',
 			'label'		=> 'About Site',
 			'type'		=> 'textarea',
 			'rows'		=> 4,
@@ -172,8 +172,8 @@ class RM_Schema_ACF {
 
 		acf_add_local_field( array(
 			'parent'	=> $parent,
-			'key'		=> 'main_phone',
-			'name'		=> 'main_phone',
+			'key'		=> 'rm_schema_main_phone',
+			'name'		=> 'rm_schema_main_phone',
 			'label'		=> 'Phone Number',
 			'type'		=> 'text',
 			'placeholder'	=> '+1-555-555-5555',
@@ -181,16 +181,16 @@ class RM_Schema_ACF {
 
 		acf_add_local_field( array(
 			'parent'	=> $parent,
-			'key'		=> 'about_us_link',
-			'name'		=> 'about_us_link',
+			'key'		=> 'rm_schema_about_us_link',
+			'name'		=> 'rm_schema_about_us_link',
 			'label'		=> 'About Us Link',
 			'type'		=> 'link',
 		) );
 
 		acf_add_local_field( array(
 			'parent'	=> $parent,
-			'key'		=> 'sitelinks_searchbox',
-			'name'		=> 'sitelinks_searchbox',
+			'key'		=> 'rm_schema_sitelinks_searchbox',
+			'name'		=> 'rm_schema_sitelinks_searchbox',
 			'label'		=> 'Use Sitelinks Searchbox?',
 			'type'		=> 'true_false',
 			'instructions'	=> 'This is the individual searchbox that will appear in Google for the site. Example and definition <a href="https://developers.google.com/search/docs/data-types/sitelinks-searchbox" target="_blank">here</a>.'
@@ -198,8 +198,8 @@ class RM_Schema_ACF {
 
 		acf_add_local_field( array(
 			'parent'	=> $parent,
-			'key'		=> 'organization_type',
-			'name'		=> 'organization_type',
+			'key'		=> 'rm_schema_organization_type',
+			'name'		=> 'rm_schema_organization_type',
 			'label'		=> 'Organization Type',
 			'type'		=> 'radio',
 			'choices'	=> array(
@@ -213,8 +213,8 @@ class RM_Schema_ACF {
 
 		acf_add_local_field( array(
 			'parent'	=> $parent,
-			'key'		=> 'price_range',
-			'name'		=> 'price_range',
+			'key'		=> 'rm_schema_price_range',
+			'name'		=> 'rm_schema_price_range',
 			'label'		=> 'Price Range',
 			'type'		=> 'text',
 			'placeholder'	=> 'Contact For Pricing',
@@ -223,8 +223,8 @@ class RM_Schema_ACF {
 
 		acf_add_local_field( array(
 			'parent'	=> $parent,
-			'key'		=> 'business_image',
-			'name'		=> 'business_image',
+			'key'		=> 'rm_schema_business_image',
+			'name'		=> 'rm_schema_business_image',
 			'label'		=> 'Business Image',
 			'type'		=> 'image',
 			'return_value'	=> 'url',
@@ -239,8 +239,8 @@ class RM_Schema_ACF {
 		// This should probably be replaced by defining social media URLs elsewhere, like theme settings but not all blogs have theme settings
 		acf_add_local_field( array(
 			'parent'	=> $parent,
-			'key'		=> 'sameas',
-			'name'		=> 'sameas',
+			'key'		=> 'rm_schema_sameas',
+			'name'		=> 'rm_schema_sameas',
 			'label'		=> 'Related URLs (Social Media)',
 			'type'		=> 'repeater',
 			'layout'	=> 'row',
@@ -249,8 +249,8 @@ class RM_Schema_ACF {
 		) );
 
 		acf_add_local_field( array(
-			'parent'	=> 'sameas',
-			'key'		=> 'url',
+			'parent'	=> 'rm_schema_sameas',
+			'key'		=> 'rm_schema_rm_schema_url',
 			'name'		=> 'url',
 			'label'		=> 'URL',
 			'type'		=> 'url',
@@ -263,8 +263,8 @@ class RM_Schema_ACF {
 		// This will/should be moved to a plugin or combined with one that will work as a hub for all theme settings/options
 		acf_add_local_field( array(
 			'parent'	=> $parent,
-			'key'		=> 'locations',
-			'name'		=> 'locations',
+			'key'		=> 'rm_schema_locations',
+			'name'		=> 'rm_schema_locations',
 			'label'		=> 'Locations',
 			'type'		=> 'repeater',
 			'layout'	=> 'row',
@@ -280,8 +280,8 @@ class RM_Schema_ACF {
 
 		acf_add_local_field( array(
 			'parent'	=> $parent,
-			'key'		=> 'employees',
-			'name'		=> 'employees',
+			'key'		=> 'rm_schema_employees',
+			'name'		=> 'rm_schema_employees',
 			'label'		=> 'Employees',
 			'type'		=> 'repeater',
 			'layout'	=> 'row',
@@ -300,8 +300,8 @@ class RM_Schema_ACF {
 		 */
 		acf_add_local_field( array(
 			'parent'	=> $parent,
-			'key'		=> 'reviews_status',
-			'name'		=> 'reviews_status',
+			'key'		=> 'rm_schema_reviews_status',
+			'name'		=> 'rm_schema_reviews_status',
 			'label'		=> 'Reviews URL',
 			'type'		=> 'radio',
 			'layout'	=> 'horizontal',
@@ -314,8 +314,8 @@ class RM_Schema_ACF {
 		) );
 		acf_add_local_field( array(
 			'parent'	=> $parent,
-			'key'		=> 'reviews_url',
-			'name'		=> 'reviews_url',
+			'key'		=> 'rm_schema_reviews_url',
+			'name'		=> 'rm_schema_reviews_url',
 			'label'		=> 'Reviews URL',
 			'type'		=> 'url',
 			'instructions'	=> 'Insert full URL of link. If the URL lives on the same site, will automatically open in same browser tab, else will open in new tab.'
@@ -323,8 +323,8 @@ class RM_Schema_ACF {
 
 		acf_add_local_field( array(
 			'parent'	=> $parent,
-			'key'		=> 'rating_value',
-			'name'		=> 'rating_value',
+			'key'		=> 'rm_schema_rating_value',
+			'name'		=> 'rm_schema_rating_value',
 			'label'		=> 'Star Rating / Rating Value',
 			'type'		=> 'number',
 			'min'		=> 0,
@@ -337,8 +337,8 @@ class RM_Schema_ACF {
 
 		acf_add_local_field( array(
 			'parent'	=> $parent,
-			'key'		=> 'reviews_count',
-			'name'		=> 'reviews_count',
+			'key'		=> 'rm_schema_reviews_count',
+			'name'		=> 'rm_schema_reviews_count',
 			'label'		=> 'Reviews Count',
 			'type'		=> 'number',
 			'min'		=> 1,
@@ -349,8 +349,8 @@ class RM_Schema_ACF {
 
 		acf_add_local_field( array(
 			'parent'	=> $parent,
-			'key'		=> 'reviews_schema_location',
-			'name'		=> 'reviews_schema_location',
+			'key'		=> 'rm_schema_reviews_schema_location',
+			'name'		=> 'rm_schema_reviews_schema_location',
 			'label'		=> 'Reviews Schema Location',
 			'type'		=> 'radio',
 			'choices'	=> array(
@@ -369,65 +369,65 @@ class RM_Schema_ACF {
 	public static function add_location_sub_fields() {
 
 		// check for business phone number to use as placeholder to show fallback to user
-		$placeholder_phonenumber	= !empty( self::$plugin_data['main_phone'] ) ? self::$plugin_data['main_phone'] : '+1-555-555-5555';
+		$placeholder_phonenumber	= !empty( self::$plugin_data['rm_schema_main_phone'] ) ? self::$plugin_data['rm_schema_main_phone'] : '+1-555-555-5555';
 
 		acf_add_local_field( array(
-			'parent'	=> 'locations',
-			'key'		=> 'business_name',
-			'name'		=> 'business_name',
+			'parent'	=> 'rm_schema_locations',
+			'key'		=> 'rm_schema_business_name',
+			'name'		=> 'rm_schema_business_name',
 			'label'		=> 'Business Name',
 			'type'		=> 'text',
-			'placeholder'	=> !empty( self::$plugin_data['site_name'] ) ? self::$plugin_data['site_name'] : get_bloginfo('name'),
+			'placeholder'	=> !empty( self::$plugin_data['rm_schema_site_name'] ) ? self::$plugin_data['rm_schema_site_name'] : get_bloginfo('name'),
 			'instructions'	=> 'If left blank, will default to Site Name.'
 		) );
 
 		acf_add_local_field( array(
-			'parent'	=> 'locations',
-			'key'		=> 'street_address',
-			'name'		=> 'street_address',
+			'parent'	=> 'rm_schema_locations',
+			'key'		=> 'rm_schema_street_address',
+			'name'		=> 'rm_schema_street_address',
 			'label'		=> 'Street Address',
 			'type'		=> 'text',
 		) );
 
 		acf_add_local_field( array(
-			'parent'	=> 'locations',
-			'key'		=> 'city',
-			'name'		=> 'city',
+			'parent'	=> 'rm_schema_locations',
+			'key'		=> 'rm_schema_city',
+			'name'		=> 'rm_schema_city',
 			'label'		=> 'City',
 			'type'		=> 'text',
 		) );
 
 		acf_add_local_field( array(
-			'parent'	=> 'locations',
-			'key'		=> 'state',
-			'name'		=> 'state',
+			'parent'	=> 'rm_schema_locations',
+			'key'		=> 'rm_schema_state',
+			'name'		=> 'rm_schema_state',
 			'label'		=> 'State',
 			'type'		=> 'text',
 			'maxlength'	=> 3
 		) );
 
 		acf_add_local_field( array(
-			'parent'	=> 'locations',
-			'key'		=> 'zipcode',
-			'name'		=> 'zipcode',
+			'parent'	=> 'rm_schema_locations',
+			'key'		=> 'rm_schema_zipcode',
+			'name'		=> 'rm_schema_zipcode',
 			'label'		=> 'Postal Code',
 			'type'		=> 'text',
 			'maxlength'	=> 12
 		) );
 
 		acf_add_local_field( array(
-			'parent'	=> 'locations',
-			'key'		=> 'country',
-			'name'		=> 'country',
+			'parent'	=> 'rm_schema_locations',
+			'key'		=> 'rm_schema_country',
+			'name'		=> 'rm_schema_country',
 			'label'		=> 'Country',
 			'type'		=> 'text',
 			'instructions'	=> 'Preferrence for the <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements" target="_blank">2-letter ISO 3166-1 alpha-2 country code</a>. <br>Only really necessary if outside of US.'
 		) );
 
 		acf_add_local_field( array(
-			'parent'	=> 'locations',
-			'key'		=> 'phone',
-			'name'		=> 'phone',
+			'parent'	=> 'rm_schema_locations',
+			'key'		=> 'rm_schema_phone',
+			'name'		=> 'rm_schema_phone',
 			'label'		=> 'Phone Number',
 			'type'		=> 'text',
 			'placeholder'	=> $placeholder_phonenumber,
@@ -435,9 +435,9 @@ class RM_Schema_ACF {
 		) );
 
 		acf_add_local_field( array(
-			'parent'		=> 'locations',
-			'key'			=> 'latitude',
-			'name'			=> 'latitude',
+			'parent'		=> 'rm_schema_locations',
+			'key'			=> 'rm_schema_latitude',
+			'name'			=> 'rm_schema_latitude',
 			'label'			=> 'Latitude',
 			'type'			=> 'number',
 			'min'			=> -90,
@@ -446,9 +446,9 @@ class RM_Schema_ACF {
 		) );
 
 		acf_add_local_field( array(
-			'parent'		=> 'locations',
-			'key'			=> 'longitude',
-			'name'			=> 'longitude',
+			'parent'		=> 'rm_schema_locations',
+			'key'			=> 'rm_schema_longitude',
+			'name'			=> 'rm_schema_longitude',
 			'label'			=> 'Longitude',
 			'type'			=> 'number',
 			'min'			=> -180,
@@ -461,10 +461,10 @@ class RM_Schema_ACF {
 	public static function add_employee_sub_fields() {
 
 		// check for business phone number to use as placeholder to show fallback to user
-		$placeholder_phonenumber	= !empty( self::$plugin_data['main_phone'] ) ? self::$plugin_data['main_phone'] : '+1-555-555-5555';
+		$placeholder_phonenumber	= !empty( self::$plugin_data['rm_schema_main_phone'] ) ? self::$plugin_data['rm_schema_main_phone'] : '+1-555-555-5555';
 
 		acf_add_local_field( array(
-			'parent'	=> 'employees',
+			'parent'	=> 'rm_schema_employees',
 			'key'		=> 'name',
 			'name'		=> 'name',
 			'label'		=> 'Name',
@@ -472,7 +472,7 @@ class RM_Schema_ACF {
 		) );
 
 		acf_add_local_field( array(
-			'parent'	=> 'employees',
+			'parent'	=> 'rm_schema_employees',
 			'key'		=> 'job_title',
 			'name'		=> 'job_title',
 			'label'		=> 'Job Title',
@@ -491,7 +491,7 @@ class RM_Schema_ACF {
 		) );
 
 		acf_add_local_field( array(
-			'parent'	=> 'employees',
+			'parent'	=> 'rm_schema_employees',
 			'key'		=> 'image',
 			'name'		=> 'image',
 			'label'		=> 'Image',
@@ -502,7 +502,7 @@ class RM_Schema_ACF {
 		) );
 
 		acf_add_local_field( array(
-			'parent'	=> 'employees',
+			'parent'	=> 'rm_schema_employees',
 			'key'		=> 'phone',
 			'name'		=> 'phone',
 			'label'		=> 'Phone Number',
@@ -512,7 +512,7 @@ class RM_Schema_ACF {
 		) );
 
 		acf_add_local_field( array(
-			'parent'	=> 'employees',
+			'parent'	=> 'rm_schema_employees',
 			'key'		=> 'link',
 			'name'		=> 'link',
 			'label'		=> 'Link',

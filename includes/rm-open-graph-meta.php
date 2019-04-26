@@ -193,8 +193,8 @@ class RM_Open_Graph_Meta {
 		}
 
 		// Get our schema default logo as fallback, if it was defined
-		if ( $image_data == false && !empty( self::$plugin_data['site_logo'] ) ) {
-			$image_data	= wp_get_attachment_image_src( self::$plugin_data['site_logo'], 'full' );
+		if ( $image_data == false && !empty( self::$plugin_data['rm_schema_site_logo'] ) ) {
+			$image_data	= wp_get_attachment_image_src( self::$plugin_data['rm_schema_site_logo'], 'full' );
 		}
 
 		if ( false !== $image_data ) {

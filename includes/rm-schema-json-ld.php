@@ -100,8 +100,8 @@ class RM_Schema_JSON_LD {
 
 		$site_about	= get_bloginfo('description');
 
-		if ( !empty( self::$plugin_data['site_about'] ) ) {
-			$site_about	= self::$plugin_data['site_about'];
+		if ( !empty( self::$plugin_data['rm_schema_site_about'] ) ) {
+			$site_about	= self::$plugin_data['rm_schema_site_about'];
 		} elseif ( function_exists('aioseop_get_options') && !empty( aioseop_get_options()['aiosp_home_description'] ) ) {
 			$site_about	= aioseop_get_options()['aiosp_home_description'];
 		} elseif ( class_exists('WPSEO_Options') ) {
@@ -123,7 +123,7 @@ class RM_Schema_JSON_LD {
 		);
 
 		// Add image of site/organization if it was defined
-		if ( !empty( self::$plugin_data['site_logo'] ) ) {
+		if ( !empty( self::$plugin_data['rm_schema_site_logo'] ) ) {
 
 			$site_logo	= wp_get_attachment_image_src( self::$plugin_data['site_logo'], 'full' );
 
@@ -136,11 +136,11 @@ class RM_Schema_JSON_LD {
 		} // END check for site_logo
 
 		// related URLs (social profiles)
-		if ( !empty( self::$plugin_data['sameas'] ) ) {
+		if ( !empty( self::$plugin_data['rm_schema_sameas'] ) ) {
 
 			$sameas_schema	= array();
 
-			foreach ( self::$plugin_data['sameas'] as $sameas ) {
+			foreach ( self::$plugin_data['rm_schema_sameas'] as $sameas ) {
 				$sameas_schema[]	= $sameas['url'];
 			}
 
@@ -148,10 +148,10 @@ class RM_Schema_JSON_LD {
 
 		} // END check for sameas
 
-		if ( !empty( self::$plugin_data['main_phone'] ) ) {
+		if ( !empty( self::$plugin_data['rm_schema_main_phone'] ) ) {
 
 			$organization_schema['contactPoint'] = array(
-				"telephone"		=> self::$plugin_data['main_phone'],
+				"telephone"		=> self::$plugin_data['rm_schema_main_phone'],
 				"contactType"	=> "customer service"
 			);
 
@@ -182,7 +182,7 @@ class RM_Schema_JSON_LD {
 		);
 
 		// Add search functionality if desired
-		if ( !empty( self::$plugin_data['sitelinks_searchbox'] ) ) {
+		if ( !empty( self::$plugin_data['rm_schema_sitelinks_searchbox'] ) ) {
 
 			$website_schema['potentialAction'] = array(
 				"@type"			=> "SearchAction",
@@ -214,24 +214,24 @@ class RM_Schema_JSON_LD {
 
 		} // End !is_front_page()
 
-		if ( !empty( self::$plugin_data['organization_type'] ) ) {
+		if ( !empty( self::$plugin_data['rm_schema_organization_type'] ) ) {
 
 			// in depth
 			$in_depth_schema = array(
 				"@context"	=> "http://schema.org/",
-				"@id"		=> '#'. self::$plugin_data['organization_type'],
-				"@type"		=> self::$plugin_data['organization_type'],
+				"@id"		=> '#'. self::$plugin_data['rm_schema_organization_type'],
+				"@type"		=> self::$plugin_data['rm_schema_organization_type'],
 				"name"		=> $site_name,
 			);
 
-			if ( !empty( self::$plugin_data['about_us_link'] ) ) {
-				$in_depth_schema['url']	= self::$plugin_data['about_us_link']['url'];
+			if ( !empty( self::$plugin_data['rm_schema_about_us_link'] ) ) {
+				$in_depth_schema['url']	= self::$plugin_data['rm_schema_about_us_link']['url'];
 			}
 
 			// Schema requires an image set and suggests/prefers a priceRange as well
-			if ( !empty( self::$plugin_data['business_image'] ) ) {
+			if ( !empty( self::$plugin_data['rm_schema_business_image'] ) ) {
 
-				$business_image	= wp_get_attachment_image_src( self::$plugin_data['business_image'], 'large' );
+				$business_image	= wp_get_attachment_image_src( self::$plugin_data['rm_schema_business_image'], 'large' );
 
 				$in_depth_schema['image']	= $business_image[0]; // only URL needed
 
@@ -249,38 +249,38 @@ class RM_Schema_JSON_LD {
 				$in_depth_schema['image']	= $site_logo_url;
 			}
 
-			$in_depth_schema['priceRange']	= !empty( self::$plugin_data['price_range'] ) ? self::$plugin_data['price_range'] : 'Contact For Pricing';
+			$in_depth_schema['priceRange']	= !empty( self::$plugin_data['rm_schema_price_range'] ) ? self::$plugin_data['rm_schema_price_range'] : 'Contact For Pricing';
 
-			if ( !empty( self::$plugin_data['locations'] ) && is_array( self::$plugin_data['locations'] ) ) {
+			if ( !empty( self::$plugin_data['rm_schema_locations'] ) && is_array( self::$plugin_data['rm_schema_locations'] ) ) {
 
-				foreach ( self::$plugin_data['locations'] as $key => $location ) {
+				foreach ( self::$plugin_data['rm_schema_locations'] as $key => $location ) {
 
 					$single_location	= array(
 						"@type"	=> "PostalAddress",
 					);
 
-					if ( !empty( $location['street_address'] ) ) {
-						$single_location['streetAddress']	= $location['street_address'];
+					if ( !empty( $location['rm_schema_street_address'] ) ) {
+						$single_location['streetAddress']	= $location['rm_schema_street_address'];
 					}
 
-					if ( !empty( $location['city'] ) ) {
-						$single_location['addressLocality']	= $location['city'];
+					if ( !empty( $location['rm_schema_city'] ) ) {
+						$single_location['addressLocality']	= $location['rm_schema_city'];
 					}
 
-					if ( !empty( $location['state'] ) ) {
-						$single_location['addressRegion']	= $location['state'];
+					if ( !empty( $location['rm_schema_state'] ) ) {
+						$single_location['addressRegion']	= $location['rm_schema_state'];
 					}
 
-					if ( !empty( $location['zipcode'] ) ) {
-						$single_location['postalCode']	= $location['zipcode'];
+					if ( !empty( $location['rm_schema_zipcode'] ) ) {
+						$single_location['postalCode']	= $location['rm_schema_zipcode'];
 					}
 
-					if ( !empty( $location['country'] ) ) {
-						$single_location['addressCountry']	= $location['country'];
+					if ( !empty( $location['rm_schema_country'] ) ) {
+						$single_location['addressCountry']	= $location['rm_schema_country'];
 					}
 
-					if ( !empty( $location['phone'] ) || !empty( self::$plugin_data['main_phone'] ) ) {
-						$single_location['telephone']	= !empty( $location['phone'] ) ? $location['phone'] : self::$plugin_data['main_phone'];
+					if ( !empty( $location['rm_schema_phone'] ) || !empty( self::$plugin_data['rm_schema_main_phone'] ) ) {
+						$single_location['telephone']	= !empty( $location['rm_schema_phone'] ) ? $location['rm_schema_phone'] : self::$plugin_data['rm_schema_main_phone'];
 					}
 
 					$in_depth_schema['address'][]	= $single_location;
@@ -289,9 +289,9 @@ class RM_Schema_JSON_LD {
 
 			} // END check for locations
 
-			if ( !empty( self::$plugin_data['employees'] ) && is_array( self::$plugin_data['employees'] ) ) {
+			if ( !empty( self::$plugin_data['rm_schema_employees'] ) && is_array( self::$plugin_data['rm_schema_employees'] ) ) {
 
-				foreach ( self::$plugin_data['employees'] as $employee ) {
+				foreach ( self::$plugin_data['rm_schema_employees'] as $employee ) {
 
 					$in_depth_schema['employees'][]	= $employee['name'];
 
@@ -322,9 +322,9 @@ class RM_Schema_JSON_LD {
 
 	public function get_employees_schema() {
 
-		if ( !empty( self::$plugin_data['employees'] ) && is_array( self::$plugin_data['employees'] ) ) {
+		if ( !empty( self::$plugin_data['rm_schema_employees'] ) && is_array( self::$plugin_data['rm_schema_employees'] ) ) {
 
-			foreach ( self::$plugin_data['employees'] as $key => $employee ) {
+			foreach ( self::$plugin_data['rm_schema_employees'] as $key => $employee ) {
 				$employee_schema = array(
 					"@context"	=> "http://schema.org",
 					"@type"		=> "Person",
@@ -335,8 +335,8 @@ class RM_Schema_JSON_LD {
 					$employee_schema['name']	= $employee['name'];
 				}
 
-				if ( !empty( $employee['phone'] ) || !empty( self::$plugin_data['main_phone'] ) ) {
-					$employee_schema['telephone']	= !empty( $employee['phone'] ) ? $employee['phone'] : self::$plugin_data['main_phone'];
+				if ( !empty( $employee['phone'] ) || !empty( self::$plugin_data['rm_schema_main_phone'] ) ) {
+					$employee_schema['telephone']	= !empty( $employee['phone'] ) ? $employee['phone'] : self::$plugin_data['rm_schema_main_phone'];
 				}
 
 				if ( !empty( $employee['link']['url'] ) ) {
@@ -363,17 +363,17 @@ class RM_Schema_JSON_LD {
 
 	public function get_locations_schema() {
 
-		if ( !empty( self::$plugin_data['locations'] ) && is_array( self::$plugin_data['locations'] ) ) {
+		if ( !empty( self::$plugin_data['rm_schema_locations'] ) && is_array( self::$plugin_data['rm_schema_locations'] ) ) {
 
-			foreach ( self::$plugin_data['locations'] as $location ) {
+			foreach ( self::$plugin_data['rm_schema_locations'] as $location ) {
 
 				// Only adding if geo values exist
 				if ( !empty( $location['latitude'] ) && !empty( $location['longitude'] ) ) {
 
 					if ( !empty( $location['business_name'] ) ) {
 						$location_name	= $location['business_name'];
-					} elseif ( !empty( self::$plugin_data['site_name'] ) ) {
-						$location_name	= self::$plugin_data['site_name'];
+					} elseif ( !empty( self::$plugin_data['rm_schema_site_name'] ) ) {
+						$location_name	= self::$plugin_data['rm_schema_site_name'];
 					} else {
 						$location_name	= get_bloginfo('name');
 					}
@@ -410,7 +410,7 @@ class RM_Schema_JSON_LD {
 		$author_ID		= $post->post_author;
 		$post_author	= get_the_author_meta( 'user_nicename', $author_ID );
 
-		$site_name	= !empty( self::$plugin_data['site_name'] ) ? self::$plugin_data['site_name'] : get_bloginfo('name');
+		$site_name	= !empty( self::$plugin_data['rm_schema_site_name'] ) ? self::$plugin_data['rm_schema_site_name'] : get_bloginfo('name');
 
 		// Use excerpt as description but if blank, overwrite with SEO plugins
 		// I really doubt more than one SEO plugin is installed, they shouldn't be anyway
@@ -452,7 +452,7 @@ class RM_Schema_JSON_LD {
 		// Add image of site/organization if it was defined
 		if ( !empty( self::$plugin_data['site_logo'] ) ) {
 
-			$site_logo	= wp_get_attachment_image_src( self::$plugin_data['site_logo'] );
+			$site_logo	= wp_get_attachment_image_src( self::$plugin_data['rm_schema_site_logo'] );
 
 			$single_schema['publisher']['logo']	= array(
 				"@type"	=> "ImageObject",
@@ -494,12 +494,12 @@ class RM_Schema_JSON_LD {
 	 */
 	public function get_rating_schema() {
 
-		if ( !empty( self::$plugin_data['reviews_status'] )	&& self::$plugin_data['reviews_status'] == 'on'	) {
+		if ( !empty( self::$plugin_data['rm_schema_reviews_status'] )	&& self::$plugin_data['rm_schema_reviews_status'] == 'on'	) {
 
 			$rating_schema['AggregateRating'] = array(
 				"@type"			=> "AggregateRating",
-				"ratingValue"	=> self::$plugin_data['rating_value'],
-				"reviewCount"	=> self::$plugin_data['reviews_count']
+				"ratingValue"	=> self::$plugin_data['rm_schema_rating_value'],
+				"reviewCount"	=> self::$plugin_data['rm_schema_reviews_count']
 			);
 
 			return $rating_schema;
