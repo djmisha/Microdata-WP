@@ -24,7 +24,7 @@ class RM_Schema_Reviews {
 		self::$plugin_data	= get_option( 'option_'. self::$plugin_slug );
 
 		// If reviews are off, do NOTHING
-		if ( !empty( self::$plugin_data['reviews_status'] ) && self::$plugin_data['reviews_status'] == 'on' ) {
+		if ( !empty( self::$plugin_data['rm_schema_reviews_status'] ) && self::$plugin_data['rm_schema_reviews_status'] == 'on' ) {
 
 			add_action( 'wp_head', array( $this, 'output_review_style' ) );
 
@@ -74,10 +74,10 @@ class RM_Schema_Reviews {
 
 	public function output_reviews_markup() {
 
-		$ratings_text		= sprintf( '%s Stars from %s Reviews', self::$plugin_data['rating_value'], self::$plugin_data['reviews_count'] );
-		$ratings_url		= self::$plugin_data['reviews_url'];
+		$ratings_text		= sprintf( '%s Stars from %s Reviews', self::$plugin_data['rm_schema_rating_value'], self::$plugin_data['rm_schema_reviews_count'] );
+		$ratings_url		= self::$plugin_data['rm_schema_reviews_url'];
 		$ratings_url_target	= ( strpos( $ratings_url, site_url() ) === 0 ) ? '' : ' target="_blank"';
-		$ratings_count		= round( self::$plugin_data['rating_value'] );
+		$ratings_count		= round( self::$plugin_data['rm_schema_rating_value'] );
 		?>
 
 		<div class="ratings">

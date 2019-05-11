@@ -90,7 +90,7 @@ class RM_Schema_JSON_LD {
 
 		// Declare some of our needed data
 		$site_url	= get_bloginfo('url');
-		$site_name	= !empty( self::$plugin_data['site_name'] ) ? self::$plugin_data['site_name'] : get_bloginfo('name');
+		$site_name	= !empty( self::$plugin_data['rm_schema_site_name'] ) ? self::$plugin_data['rm_schema_site_name'] : get_bloginfo('name');
 
 		// Site description is determined by the following logic/priority:
 		// 		1) Define natural WordPress "Site Tagline"
@@ -125,7 +125,7 @@ class RM_Schema_JSON_LD {
 		// Add image of site/organization if it was defined
 		if ( !empty( self::$plugin_data['rm_schema_site_logo'] ) ) {
 
-			$site_logo	= wp_get_attachment_image_src( self::$plugin_data['site_logo'], 'full' );
+			$site_logo	= wp_get_attachment_image_src( self::$plugin_data['rm_schema_site_logo'], 'full' );
 
 			$organization_schema['logo'] = array(
 				"@type"	=> "ImageObject",
@@ -141,7 +141,7 @@ class RM_Schema_JSON_LD {
 			$sameas_schema	= array();
 
 			foreach ( self::$plugin_data['rm_schema_sameas'] as $sameas ) {
-				$sameas_schema[]	= $sameas['url'];
+				$sameas_schema[]	= $sameas['rm_schema_sameas_url'];
 			}
 
 			$organization_schema['sameAs']	= $sameas_schema;
@@ -235,12 +235,12 @@ class RM_Schema_JSON_LD {
 
 				$in_depth_schema['image']	= $business_image[0]; // only URL needed
 
-			} elseif ( !empty( self::$plugin_data['site_logo'] ) ) {
+			} elseif ( !empty( self::$plugin_data['rm_schema_site_logo'] ) ) {
 
 				// Just making absolutely sure the variable was defined further above
 				// but if not, then define it
 				if ( !isset( $site_logo ) ) {
-					$site_logo		= wp_get_attachment_image_src( self::$plugin_data['site_logo'], 'full' );
+					$site_logo		= wp_get_attachment_image_src( self::$plugin_data['rm_schema_site_logo'], 'full' );
 					$site_logo_url	= $site_logo[0];
 				} else {
 					$site_logo_url	= $site_logo[0];
@@ -293,7 +293,7 @@ class RM_Schema_JSON_LD {
 
 				foreach ( self::$plugin_data['rm_schema_employees'] as $employee ) {
 
-					$in_depth_schema['employees'][]	= $employee['name'];
+					$in_depth_schema['employees'][]	= $employee['rm_schema_employees_name'];
 
 				} // END foreach employees
 
@@ -328,25 +328,25 @@ class RM_Schema_JSON_LD {
 				$employee_schema = array(
 					"@context"	=> "http://schema.org",
 					"@type"		=> "Person",
-					"jobTitle"	=> $employee['job_title'] // this is always present, no check if empty needed
+					"jobTitle"	=> $employee['rm_schema_employees_job_title'] // this is always present, no check if empty needed
 				);
 
-				if ( !empty( $employee['name'] ) ) {
-					$employee_schema['name']	= $employee['name'];
+				if ( !empty( $employee['rm_schema_employees_name'] ) ) {
+					$employee_schema['name']	= $employee['rm_schema_employees_name'];
 				}
 
-				if ( !empty( $employee['phone'] ) || !empty( self::$plugin_data['rm_schema_main_phone'] ) ) {
-					$employee_schema['telephone']	= !empty( $employee['phone'] ) ? $employee['phone'] : self::$plugin_data['rm_schema_main_phone'];
+				if ( !empty( $employee['rm_schema_employees_phone'] ) || !empty( self::$plugin_data['rm_schema_main_phone'] ) ) {
+					$employee_schema['telephone']	= !empty( $employee['rm_schema_employees_phone'] ) ? $employee['rm_schema_employees_phone'] : self::$plugin_data['rm_schema_main_phone'];
 				}
 
-				if ( !empty( $employee['link']['url'] ) ) {
-					$employee_schema['url']	= $employee['link']['url'];
+				if ( !empty( $employee['rm_schema_employees_link']['url'] ) ) {
+					$employee_schema['url']	= $employee['rm_schema_employees_link']['url'];
 				}
 
 				// Add image of site/organization if it was defined
-				if ( !empty( $employee['image'] ) ) {
+				if ( !empty( $employee['rm_schema_employees_image'] ) ) {
 
-					$employee_image	= wp_get_attachment_image_src( $employee['image'], 'medium' );
+					$employee_image	= wp_get_attachment_image_src( $employee['rm_schema_employees_image'], 'medium' );
 
 					$employee_schema['image']	= $employee_image[0]; // represents the URL
 
@@ -368,10 +368,10 @@ class RM_Schema_JSON_LD {
 			foreach ( self::$plugin_data['rm_schema_locations'] as $location ) {
 
 				// Only adding if geo values exist
-				if ( !empty( $location['latitude'] ) && !empty( $location['longitude'] ) ) {
+				if ( !empty( $location['rm_schema_locations_latitude'] ) && !empty( $location['rm_schema_locations_longitude'] ) ) {
 
-					if ( !empty( $location['business_name'] ) ) {
-						$location_name	= $location['business_name'];
+					if ( !empty( $location['rm_schema_locations_business_name'] ) ) {
+						$location_name	= $location['rm_schema_locations_business_name'];
 					} elseif ( !empty( self::$plugin_data['rm_schema_site_name'] ) ) {
 						$location_name	= self::$plugin_data['rm_schema_site_name'];
 					} else {
@@ -385,8 +385,8 @@ class RM_Schema_JSON_LD {
 						"name"		=> $location_name,
 						"geo"		=> array(
 							"@type"		=> "GeoCoordinates",
-							"latitude"	=> $location['latitude'],
-							"longitude"	=> $location['longitude']
+							"latitude"	=> $location['rm_schema_locations_latitude'],
+							"longitude"	=> $location['rm_schema_locations_longitude']
 						)
 					);
 
@@ -450,7 +450,7 @@ class RM_Schema_JSON_LD {
 		);
 
 		// Add image of site/organization if it was defined
-		if ( !empty( self::$plugin_data['site_logo'] ) ) {
+		if ( !empty( self::$plugin_data['rm_schema_site_logo'] ) ) {
 
 			$site_logo	= wp_get_attachment_image_src( self::$plugin_data['rm_schema_site_logo'] );
 
