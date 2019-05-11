@@ -1,6 +1,10 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 0.6.1
+
+* Added backward compatibility
+
 ## 0.6
 
 * Renamed ACF field names and keys to avoid collisions 
