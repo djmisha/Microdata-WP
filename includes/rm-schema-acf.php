@@ -325,7 +325,6 @@ class RM_Schema_ACF {
 			'button_label'	=> 'Add Employee',
             'value' => self::update_acf_subfields('employees', [
                 'name' => 'rm_schema_employees_name',
-                'url' => 'rm_schema_employees_url',
                 'phone' => 'rm_schema_employees_phone',
                 'link' => 'rm_schema_employees_link',
                 'job_title' => 'rm_schema_employees_job_title',
