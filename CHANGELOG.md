@@ -1,6 +1,10 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 0.6.3
+
+* Added backward compatibility for employee links
+
 ## 0.6.2
 
 * Added backward compatibility for employee images
