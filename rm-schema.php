@@ -6,7 +6,7 @@
  * Plugin URI: https://www.rosemontmedia.com/
  * Author: Rosemont Media
  * Author URI: https://www.rosemontmedia.com/
- * Version: 0.6
+ * Version: 0.6.2
  * Description: Adds admin page and fields through ACF to add Business and Review schema to the website head tag. Currently only supports Pro version of ACF.
  *
  */
