@@ -329,6 +329,7 @@ class RM_Schema_ACF {
                 'phone' => 'rm_schema_employees_phone',
                 'link' => 'rm_schema_employees_link',
                 'job_title' => 'rm_schema_employees_job_title',
+                'image' => 'rm_schema_employees_image'
                 ])
 		) );
 
