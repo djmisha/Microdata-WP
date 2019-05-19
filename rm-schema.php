@@ -18,7 +18,7 @@ if ( !defined('ABSPATH') )
 define( 'RM_SCHEMA_PATH', plugin_dir_path(__FILE__) );
 define( 'RM_SCHEMA_URL', plugin_dir_url(__FILE__) );
 define( 'RM_SCHEMA_BASE', plugin_basename( __FILE__ ) );
-define( 'RM_SCHEMA_VERSION', '0.6.1' );
+define( 'RM_SCHEMA_VERSION', '0.6.4' );
 
 class RM_Schema {
 
