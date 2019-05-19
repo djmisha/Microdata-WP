@@ -1,6 +1,10 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 0.6.4
+
+* Fix: Prevented PHP Warning messages
+
 ## 0.6.3
 
 * Added backward compatibility for employee links
@@ -16,7 +20,7 @@ All notable changes to this project will be documented in this file.
 
 ## 0.6
 
-* Renamed ACF field names and keys to avoid collisions 
+* Renamed ACF field names and keys to avoid collisions
 
 ## 0.5
 
