@@ -1,6 +1,10 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 0.6.5
+
+* Fix: updated static function self::recoverValue
+
 ## 0.6.4
 
 * Fix: Prevented PHP Warning messages

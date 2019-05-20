@@ -157,7 +157,7 @@ class RM_Schema_ACF {
 			'max_width'		=> 1920,
 			'max_height'	=> 1080,
 			'instructions'	=> 'Only jpg and png files accepted. <br>Min dimensions of image: 160px width by 90px height <br>Max dimensions of image: 1920px width by 1080px height',
-			'value' => recoverValue('site_logo')
+			'value' => self::recoverValue('site_logo')
 		) );
 
 		acf_add_local_field( array(
@@ -168,7 +168,7 @@ class RM_Schema_ACF {
 			'type'		=> 'text',
 			'placeholder'	=> get_bloginfo('name'),
 			'instructions'	=> 'If left blank, will default to the "Site Title" defined in WordPress admin area under General Settings. <br>Used for Organization and Website schema.',
-			'value' => recoverValue('site_name')
+			'value' => self::recoverValue('site_name')
 		) );
 
 		acf_add_local_field( array(
@@ -180,7 +180,7 @@ class RM_Schema_ACF {
 			'rows'		=> 4,
 			'placeholder'	=> get_bloginfo('description'),
 			'instructions'	=> 'If left blank, will default to the "Site Tagline" defined in WordPress admin area under General Settings.',
-			'value' => recoverValue('site_about')
+			'value' => self::recoverValue('site_about')
 		) );
 
 		acf_add_local_field( array(
@@ -190,7 +190,7 @@ class RM_Schema_ACF {
 			'label'		=> 'Phone Number',
 			'type'		=> 'text',
 			'placeholder'	=> '+1-555-555-5555',
-			'value' => recoverValue('main_phone')
+			'value' => self::recoverValue('main_phone')
 		) );
 
 		acf_add_local_field( array(
@@ -199,7 +199,7 @@ class RM_Schema_ACF {
 			'name'		=> 'rm_schema_about_us_link',
 			'label'		=> 'About Us Link',
 			'type'		=> 'link',
-			'value' => recoverValue('about_us_link')
+			'value' => self::recoverValue('about_us_link')
 		) );
 
 		acf_add_local_field( array(
@@ -209,7 +209,7 @@ class RM_Schema_ACF {
 			'label'		=> 'Use Sitelinks Searchbox?',
 			'type'		=> 'true_false',
 			'instructions'	=> 'This is the individual searchbox that will appear in Google for the site. Example and definition <a href="https://developers.google.com/search/docs/data-types/sitelinks-searchbox" target="_blank">here</a>.',
-			'value' => recoverValue('sitelinks_searchbox')
+			'value' => self::recoverValue('sitelinks_searchbox')
 		) );
 
 		acf_add_local_field( array(
@@ -225,7 +225,7 @@ class RM_Schema_ACF {
 			),
 			'layout'		=> 'horizontal',
 			'other_choice'	=> true,
-			'value' => recoverValue('organization_type')
+			'value' => self::recoverValue('organization_type')
 		) );
 
 		acf_add_local_field( array(
@@ -236,7 +236,7 @@ class RM_Schema_ACF {
 			'type'		=> 'text',
 			'placeholder'	=> 'Contact For Pricing',
 			'instructions'	=> 'The price range of the business. Arbitrary field. For example "$$$"" or a range "$00 - $0000".',
-			'value' => recoverValue('price_range')
+			'value' => self::recoverValue('price_range')
 		) );
 
 		acf_add_local_field( array(
@@ -252,7 +252,7 @@ class RM_Schema_ACF {
 			'max_width'		=> 1920,
 			'max_height'	=> 1080,
 			'instructions'	=> 'Image of the actual Business. Will default/fallback to the Site Logo if left empty. <br>Only jpg and png files accepted. <br>Min dimensions of image: 160px width by 90px height <br>Max dimensions of image: 1920px width by 1080px height',
-			'value' => recoverValue('business_image')
+			'value' => self::recoverValue('business_image')
 		) );
 
 		// This should probably be replaced by defining social media URLs elsewhere, like theme settings but not all blogs have theme settings
@@ -364,7 +364,7 @@ class RM_Schema_ACF {
 			),
 			'default_value'	=> 'off',
 			'instructions'	=> 'If status is "off", none of the below will show up on schema or markup. <br><strong>Note for DEV:</strong> Insert "<strong>do_action(\'reviews_markup\')</strong>" in a theme template to display the Reviews Schema (99% of the time you want to put this in the "<strong>footer.php</strong>" template).',
-			'value' => recoverValue('reviews_status')
+			'value' => self::recoverValue('reviews_status')
 		) );
 		acf_add_local_field( array(
 			'parent'	=> $parent,
@@ -373,7 +373,7 @@ class RM_Schema_ACF {
 			'label'		=> 'Reviews URL',
 			'type'		=> 'url',
 			'instructions'	=> 'Insert full URL of link. If the URL lives on the same site, will automatically open in same browser tab, else will open in new tab.',
-			'value' => recoverValue('reviews_url')
+			'value' => self::recoverValue('reviews_url')
 		) );
 
 		acf_add_local_field( array(
@@ -388,7 +388,7 @@ class RM_Schema_ACF {
 			'placeholder'	=> '0.0',
 			'default_value'	=> '0.0',
 			'instructions'	=> 'This will appear as an actual number in the mark up.',
-			'value' => recoverValue('rating_value')
+			'value' => self::recoverValue('rating_value')
 		) );
 
 		acf_add_local_field( array(
@@ -401,7 +401,7 @@ class RM_Schema_ACF {
 			'placeholder'	=> '0',
 			'default_value'	=> 1,
 			'instructions'	=> 'The number of reviews for the front-end markup and schema markup.',
-			'value' => recoverValue('reviews_count')
+			'value' => self::recoverValue('reviews_count')
 		) );
 
 		acf_add_local_field( array(
@@ -416,7 +416,7 @@ class RM_Schema_ACF {
 			),
 			'default_value'	=> 'organization',
 			'instructions'	=> 'Determine where/what to append Reviews Schema to in Schema markup.',
-			'value' => recoverValue('reviews_schema_location')
+			'value' => self::recoverValue('reviews_schema_location')
 		) );
 
 	}
@@ -437,7 +437,7 @@ class RM_Schema_ACF {
 			'type'		=> 'text',
 			'placeholder'	=> !empty( self::$plugin_data['rm_schema_site_name'] ) ? self::$plugin_data['rm_schema_site_name'] : get_bloginfo('name'),
 			'instructions'	=> 'If left blank, will default to Site Name.',
-			'value' => recoverValue('business_name')
+			'value' => self::recoverValue('business_name')
 		) );
 
 		acf_add_local_field( array(
@@ -446,7 +446,7 @@ class RM_Schema_ACF {
 			'name'		=> 'rm_schema_locations_street_address',
 			'label'		=> 'Street Address',
 			'type'		=> 'text',
-			'value' => recoverValue('street_address')
+			'value' => self::recoverValue('street_address')
 		) );
 
 		acf_add_local_field( array(
@@ -455,7 +455,7 @@ class RM_Schema_ACF {
 			'name'		=> 'rm_schema_locations_city',
 			'label'		=> 'City',
 			'type'		=> 'text',
-			'value' => recoverValue('city')
+			'value' => self::recoverValue('city')
 		) );
 
 		acf_add_local_field( array(
@@ -465,7 +465,7 @@ class RM_Schema_ACF {
 			'label'		=> 'State',
 			'type'		=> 'text',
 			'maxlength'	=> 3,
-			'value' => recoverValue('state')
+			'value' => self::recoverValue('state')
 		) );
 
 		acf_add_local_field( array(
@@ -475,7 +475,7 @@ class RM_Schema_ACF {
 			'label'		=> 'Postal Code',
 			'type'		=> 'text',
 			'maxlength'	=> 12,
-			'value' => recoverValue('zipcode')
+			'value' => self::recoverValue('zipcode')
 		) );
 
 		acf_add_local_field( array(
@@ -496,7 +496,7 @@ class RM_Schema_ACF {
 			'type'		=> 'text',
 			'placeholder'	=> $placeholder_phonenumber,
 			'instructions'	=> 'If left blank, will default to the general number above.',
-			'value' => recoverValue('phone')
+			'value' => self::recoverValue('phone')
 		) );
 
 		acf_add_local_field( array(
@@ -508,7 +508,7 @@ class RM_Schema_ACF {
 			'min'			=> -90,
 			'max'			=> 90,
 			'placeholder'	=> '000.0000',
-			'value' => recoverValue('latitude')
+			'value' => self::recoverValue('latitude')
 		) );
 
 		acf_add_local_field( array(
@@ -520,7 +520,7 @@ class RM_Schema_ACF {
 			'min'			=> -180,
 			'max'			=> 180,
 			'placeholder'	=> '000.0000',
-			'value' => recoverValue('longitude')
+			'value' => self::recoverValue('longitude')
 		) );
 
 	}
@@ -555,7 +555,7 @@ class RM_Schema_ACF {
 			),
 			'layout'		=> 'horizontal',
 			'other_choice'	=> true,
-			'value' => recoverValue('job_title')
+			'value' => self::recoverValue('job_title')
 		) );
 
 		acf_add_local_field( array(
@@ -567,7 +567,7 @@ class RM_Schema_ACF {
 			'return_value'	=> 'url',
 			'mime_types'	=> 'jpg, jpeg, png',
 			'instructions'	=> 'Only jpg and png files accepted',
-			'value' => recoverValue('image')
+			'value' => self::recoverValue('image')
 		) );
 
 		acf_add_local_field( array(
@@ -578,7 +578,7 @@ class RM_Schema_ACF {
 			'type'		=> 'text',
 			'placeholder'	=> $placeholder_phonenumber,
 			'instructions'	=> 'If left blank, will default to business number.',
-			'value' => recoverValue('phone')
+			'value' => self::recoverValue('phone')
 		) );
 
 		acf_add_local_field( array(
@@ -587,7 +587,7 @@ class RM_Schema_ACF {
 			'name'		=> 'rm_schema_employees_link',
 			'label'		=> 'Link',
 			'type'		=> 'link',
-			'value' => recoverValue('link')
+			'value' => self::recoverValue('link')
 		) );
 
 	}
