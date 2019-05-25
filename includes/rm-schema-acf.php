@@ -56,6 +56,13 @@ class RM_Schema_ACF {
 			'menu_order'	=> 3
 		);
 
+		self::$groups[]	= array(
+			'key'			=> 'rm_review_schema_settings',
+			'title'			=> 'Review Schema Settings',
+			'menu_order'	=> 4,
+			'location'	  => 'rm_review_schema_settings'
+		);
+
 		$this->create_admin_page();
 		$this->add_groups();
 
@@ -91,6 +98,15 @@ class RM_Schema_ACF {
 				'redirect'		=> false
 			) );
 
+			acf_add_options_sub_page( array(
+						'page_title'   => 'RM Schema Settings',
+						'menu_title'  => 'RM Schema Settings',
+						'menu_slug'   => 'rm_review_schema_settings',
+						'parent_slug' => self::$plugin_slug,
+						'capability'  => 'edit_posts',
+						'redirect' => false
+					) );
+
 		}
 
 	}
@@ -111,7 +127,7 @@ class RM_Schema_ACF {
 						array(
 							'param'		=> 'options_page',
 							'operator'	=> '==',
-							'value'		=> self::$plugin_slug,
+							'value'		=> isset($group['location']) ? $group['location'] : self::$plugin_slug,
 						),
 					),
 				),
@@ -134,6 +150,26 @@ class RM_Schema_ACF {
 			return self::$plugin_data[$oldSettingName];
 
 		return;
+	}
+
+	public static function add_fields_rm_review_schema_settings( $parent ) {
+
+		$post_types = [];
+
+		foreach (get_post_types() as $name => $label ) {
+			//array_push($post_types, [$post->name => $post->label ]);
+			$post_types[$name] = $label;
+		}
+
+		acf_add_local_field( array(
+			'parent'	=> $parent,
+			'key'		=> 'rm_review_schema_settings_types',
+			'name'		=> 'rm_review_schema_settings_types',
+			'label'		=> 'Custom Post Types',
+			'type'		=> 'checkbox',
+			'choices'   => $post_types,
+			'instructions'	=> 'Check custom post types to be injected',
+		));
 	}
 
 	/**
