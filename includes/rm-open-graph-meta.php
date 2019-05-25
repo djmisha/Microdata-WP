@@ -56,6 +56,13 @@ class RM_Open_Graph_Meta {
 	}
 
 	public function rm_open_graph_head() {
+		$post_type = get_post_type( get_queried_object()->ID );
+		$allowed_post_types = get_field('rm_review_schema_settings_types', 'options');
+
+		if( !is_array($allowed_post_types) || array_search($post_type, $allowed_post_types) === false) {
+			return;
+		}
+
 		do_action( 'rm_open_graph' );
 	}
 
