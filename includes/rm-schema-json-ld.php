@@ -158,7 +158,7 @@ class RM_Schema_JSON_LD {
 		} // END check for phone
 
 		// Append the review schema here, if applicable
-		if ( !empty( self::$plugin_data['reviews_schema_location'] ) && self::$plugin_data['reviews_schema_location'] == 'organization'	) {
+		if ( !empty( self::$plugin_data['rm_schema_reviews_schema_location'] ) && self::$plugin_data['rm_schema_reviews_schema_location'] == 'organization'	) {
 
 			// one last check but also get the data and set to a variable inline
 			if ( NULL !== $rating_schema = $this->get_rating_schema() ) {
@@ -300,7 +300,7 @@ class RM_Schema_JSON_LD {
 			} // END check for employees
 
 			// Append the review schema here, if applicable
-			if ( !empty( self::$plugin_data['reviews_schema_location'] ) && self::$plugin_data['reviews_schema_location'] == 'person' ) {
+			if ( !empty( self::$plugin_data['rm_schema_reviews_schema_location'] ) && self::$plugin_data['rm_schema_reviews_schema_location'] == 'person' ) {
 
 				// one last check but also get the data and set to a variable inline
 				if ( NULL !== $rating_schema = $this->get_rating_schema() ) {
