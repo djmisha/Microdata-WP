@@ -1,6 +1,10 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 0.6.7
+
+* Fix: recover aggregate ratings in the organizations schema
+
 ## 0.6.6
 
 * Feat: select the post types to include the social media tags
