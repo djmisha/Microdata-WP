@@ -9,7 +9,7 @@ if ( !defined('ABSPATH') )
  * Notes:
  * 		1) Separated the group and fields to keep it a bit more organized
  * 		2) To keep code organized, I added 'repeater' fields with the 'acf_add_local_field' function.
- * 		   Therefore, every 'sub_field' has to be added with the 'acf_add_local_field' function or else ACF throws a bitch fit
+ * 		 Therefore, every 'sub_field' has to be added with the 'acf_add_local_field' function or else ACF throws a bitch fit
  */
 
 class RM_Schema_ACF {
@@ -60,7 +60,7 @@ class RM_Schema_ACF {
 			'key'			=> 'rm_review_schema_settings',
 			'title'			=> 'Review Schema Settings',
 			'menu_order'	=> 4,
-			'location'	  => 'rm_review_schema_settings'
+			'location'	=> 'rm_review_schema_settings'
 		);
 
 		$this->create_admin_page();
@@ -99,11 +99,11 @@ class RM_Schema_ACF {
 			) );
 
 			acf_add_options_sub_page( array(
-						'page_title'   => 'RM Schema Settings',
-						'menu_title'  => 'RM Schema Settings',
-						'menu_slug'   => 'rm_review_schema_settings',
+						'page_title' => 'RM Schema Settings',
+						'menu_title'=> 'RM Schema Settings',
+						'menu_slug' => 'rm_review_schema_settings',
 						'parent_slug' => self::$plugin_slug,
-						'capability'  => 'edit_posts',
+						'capability'=> 'edit_posts',
 						'redirect' => false
 					) );
 
@@ -154,7 +154,7 @@ class RM_Schema_ACF {
 
 	public static function add_fields_rm_review_schema_settings( $parent ) {
 
-		$post_types = [];
+		$post_types = array();
 
 		foreach (get_post_types() as $name => $label ) {
 			//array_push($post_types, [$post->name => $post->label ]);
@@ -167,7 +167,7 @@ class RM_Schema_ACF {
 			'name'		=> 'rm_review_schema_settings_types',
 			'label'		=> 'Custom Post Types',
 			'type'		=> 'checkbox',
-			'choices'   => $post_types,
+			'choices' => $post_types,
 			'instructions'	=> 'Check custom post types to be injected',
 		));
 	}
@@ -521,7 +521,7 @@ class RM_Schema_ACF {
 			'label'		=> 'Country',
 			'type'		=> 'text',
 			'instructions'	=> 'Preferrence for the <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements" target="_blank">2-letter ISO 3166-1 alpha-2 country code</a>. <br>Only really necessary if outside of US.',
-			'value' => recoverValue('country')
+			'value' => self::recoverValue('country')
 		) );
 
 		acf_add_local_field( array(
