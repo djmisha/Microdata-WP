@@ -1,6 +1,10 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 0.6.9
+
+* Fix: removed short open tags
+
 ## 0.6.8
 
 * Fix: backward compatibility with PHP 5.4 and WP 4.4
