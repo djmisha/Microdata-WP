@@ -1,6 +1,10 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 0.7.0
+
+* Fix: improved plugin loading priorities
+
 ## 0.6.9
 
 * Fix: removed short open tags
