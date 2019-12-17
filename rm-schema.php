@@ -6,7 +6,7 @@
  * Plugin URI: https://www.rosemontmedia.com/
  * Author: Rosemont Media
  * Author URI: https://www.rosemontmedia.com/
- * Version: 0.6.9
+ * Version: 0.7.0
  * Description: Adds admin page and fields through ACF to add Business and Review schema to the website head tag. Currently only supports Pro version of ACF.
  *
  */
@@ -18,7 +18,7 @@ if ( !defined('ABSPATH') )
 define( 'RM_SCHEMA_PATH', plugin_dir_path(__FILE__) );
 define( 'RM_SCHEMA_URL', plugin_dir_url(__FILE__) );
 define( 'RM_SCHEMA_BASE', plugin_basename( __FILE__ ) );
-define( 'RM_SCHEMA_VERSION', '0.6.8' );
+define( 'RM_SCHEMA_VERSION', '0.7.0' );
 
 class RM_Schema {
 
@@ -36,9 +36,9 @@ class RM_Schema {
 
 	public function __construct() {
 
-		add_action( 'plugins_loaded', array( $this, 'plugin_init' ) );
+		add_action( 'plugins_loaded', array( $this, 'plugin_init' ), 20 );
 
-		add_action( 'admin_notices', array( $this, 'data_notifications' ) );
+		add_action( 'admin_notices', array( $this, 'data_notifications' ), 21 );
 
 	}
 
@@ -60,10 +60,10 @@ class RM_Schema {
 	public function plugin_init() {
 
 		// ACF check notification
-		add_action( 'admin_notices', array( $this, 'acf_check_notice' ) );
+		add_action( 'admin_notices', array( $this, 'acf_check_notice' ), 22 );
 
 		// hook into the ACF actions
-		add_action( 'acf/init', array( $this, 'add_our_files' ) );
+		add_action( 'acf/init', array( $this, 'add_our_files' ), 23 );
 
 	}
 

@@ -50,35 +50,34 @@ class RM_Open_Graph_ACF {
 	 */
 	public static function add_groups() {
 
-		foreach ( self::$groups as $group ) {
+		$allowed_post_types = get_field('rm_review_schema_settings_types', 'options');
 
+		$locations = array();
+
+		foreach ($allowed_post_types as $typeName) {
+			$newType = array(
+				array(
+					'param'		=> 'post_type',
+					'operator'	=> '==',
+					'value'		=> $typeName
+				)
+			);
+
+			array_push($locations, $newType);
+		}
+
+		foreach ( self::$groups as $group ) {
 			acf_add_local_field_group( array(
 				'key'			=> $group['key'],
 				'title'			=> $group['title'],
 				'menu_order'	=> !empty( $group['menu_order'] ) ? $group['menu_order'] : 0,
-				'location'		=> array(
-					array(
-						array(
-							'param'		=> 'post_type',
-							'operator'	=> '==',
-							'value'		=> 'post',
-						)
-					),
-					array(
-						array(
-							'param'		=> 'post_type',
-							'operator'	=> '==',
-							'value'		=> 'page',
-						)
-					),
-				),
+				'location'		=> $locations,
 				'instruction_placement'	=> 'field',
 			) );
 
 			// calling each function based on the key of the group (dynamic purposes)
 			$method_name	= 'add_fields_' . $group['key'];
 			self::{"$method_name"}($group['key']);
-
 		}
 
 	}
